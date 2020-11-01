@@ -1,0 +1,29 @@
+﻿<Window x:Class="ProtectionLab3Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProtectionLab3Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+            <TextBox x:Name="PassPhrase" Text="Enter here password phrase"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="SourceFile" Text="Here will be a path to source file" Margin="10,10,10,10" Width="260"></TextBlock>
+                <Button x:Name="SourceBtn" Width="100" Height="20" Content="Search file" Click="SourceBtn_Click"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="DestFile" Text="Here will be a path to dest file" Margin="10,10,10,10" Width="260"></TextBlock>
+                <Button x:Name="DestBtn" Width="100" Height="20" Content="Search file" Click="DestBtn_Click"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="InitFile" Text="Here will be a path to init vec file" Margin="10,10,10,10" Width="260"></TextBlock>
+                <Button x:Name="InitBtn" Width="100" Height="20" Content="Search file" Click="InitBtn_Click"></Button>
+            </StackPanel>
+            <Button x:Name="EncBtn" Content="Encrypion" Width="200" Click="EncBtn_Click"></Button>
+            <Button x:Name="DecBtn" Content="Decryption" Margin="0,10,0,10" Width="200" Click="DecBtn_Click"></Button>
+            <TextBlock x:Name="StatusTextBlock" Text="Here will be execution status" Margin="10,10,10,10" Width="260"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

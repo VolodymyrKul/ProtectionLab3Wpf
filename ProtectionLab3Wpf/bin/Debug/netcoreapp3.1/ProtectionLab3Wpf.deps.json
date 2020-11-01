@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ProtectionLab3Wpf/1.0.0": {
+        "runtime": {
+          "ProtectionLab3Wpf.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProtectionLab3Wpf/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
