@@ -32,8 +32,6 @@ namespace ProtectionLab3Wpf
         //Кнопка шифрування
         private void EncBtn_Click(object sender, RoutedEventArgs e)
         {
-            //string EncPhrase = "abcdabcdabcdabcde";
-        
             //string EncKey = "vovalab2";
             
             if(PassPhrase.Text.ToString()== "Enter here password phrase")
@@ -49,12 +47,12 @@ namespace ProtectionLab3Wpf
                     Tmp_Vec[0] = Vec[i * 2];
                     Tmp_Vec[1] = Vec[i * 2 + 1];
                     string teststr = UserMes[i].Replace("\n", "").Replace("\r", "");
-                    RC5_Algo_Enc(teststr, 12, MD5_Algo(PassPhrase.Text.ToString()), Tmp_Vec);
+                    RC5_Algo_Enc(teststr, 20, MD5_Algo(PassPhrase.Text.ToString()), Tmp_Vec);
                 }
                 InitVecMes = new string[Vec.Length];
                 for (int j = 0; j < Vec.Length; j++)
                 {
-                    InitVecMes[j] = RC5_Init_Enc(Vec[j].ToString(), 12, MD5_Algo(PassPhrase.Text.ToString()));
+                    InitVecMes[j] = RC5_Init_Enc(Vec[j].ToString(), 20, MD5_Algo(PassPhrase.Text.ToString()));
                 }
                 StatusTextBlock.Text = "Encryption is completed";
             }
@@ -73,7 +71,7 @@ namespace ProtectionLab3Wpf
                 for (int j = 0; j < InitVecMes.Length; j++)
                 {
                     string tmp = InitVecMes[j].Replace("\n", "").Replace("\r", "");
-                    Vec[j] = RC5_Init_Dec(tmp, 12, MD5_Algo(PassPhrase.Text.ToString()));
+                    Vec[j] = RC5_Init_Dec(tmp, 20, MD5_Algo(PassPhrase.Text.ToString()));
                 }
                 for (int i = 0; i < UserMes.Length; i++)
                 {
@@ -81,7 +79,7 @@ namespace ProtectionLab3Wpf
                     Tmp_Vec[0] = Vec[i * 2];
                     Tmp_Vec[1] = Vec[i * 2 + 1];
                     string teststr = UserMes[i].Replace("\n", "").Replace("\r", "");
-                    RC5_Algo_Dec(teststr, 12, MD5_Algo(PassPhrase.Text.ToString()), Tmp_Vec);
+                    RC5_Algo_Dec(teststr, 20, MD5_Algo(PassPhrase.Text.ToString()), Tmp_Vec);
                 }
                 StatusTextBlock.Text = "Decryption is completed";
             }
@@ -514,15 +512,15 @@ namespace ProtectionLab3Wpf
                 Reg_C += Temp_C;
                 Reg_D += Temp_D;
             }
-            byte[] RezArr = new byte[16];
+            byte[] RezArr = new byte[8];
             byte[] PartArr = BitConverter.GetBytes(Reg_A);
             PartArr.CopyTo(RezArr, 0);
             PartArr = BitConverter.GetBytes(Reg_B);
             PartArr.CopyTo(RezArr, 4);
-            PartArr = BitConverter.GetBytes(Reg_C);
-            PartArr.CopyTo(RezArr, 8);
-            PartArr = BitConverter.GetBytes(Reg_D);
-            PartArr.CopyTo(RezArr, 12);
+            //PartArr = BitConverter.GetBytes(Reg_C);
+            //PartArr.CopyTo(RezArr, 8);
+            //PartArr = BitConverter.GetBytes(Reg_D);
+            //PartArr.CopyTo(RezArr, 12);
 
             return RezArr;
         }
